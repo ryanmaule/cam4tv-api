@@ -1,8 +1,7 @@
 To do:
-- Beautify Authorization page
-- Record login in history
-- Create AppleTV screen to access Generate and Poll
-- Create Logout button
+- Move redirect out of confirm.php
+- Record login in sessions
+- Create Logout button on AppleTV
 - Verify resource using OAuth (code currently disabled)
 - Create script to post "currently viewed model" from AppleTV to db
 - Create Second Screen script to read and display "currently viewed model"
