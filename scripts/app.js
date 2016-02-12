@@ -41,7 +41,7 @@ angular.module('BasicHttpAuthExample', [
 
         .otherwise({ redirectTo: '/login' });
         
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(false);
 }])
 
 .run(['$rootScope', '$location', '$cookieStore', '$http',
