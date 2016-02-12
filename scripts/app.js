@@ -11,7 +11,7 @@ angular.module('BasicHttpAuthExample', [
     'ngCookies'
 ])
 
-.config(['$routeProvider', function ($routeProvider) {
+.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/auth/:key_code', {
@@ -40,6 +40,8 @@ angular.module('BasicHttpAuthExample', [
         })
 
         .otherwise({ redirectTo: '/login' });
+        
+        $locationProvider.html5Mode(true);
 }])
 
 .run(['$rootScope', '$location', '$cookieStore', '$http',

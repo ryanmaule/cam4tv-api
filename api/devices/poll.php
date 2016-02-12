@@ -5,9 +5,6 @@ Example: AFSPSM
 */
 session_start();
 
-// include our OAuth2 Server object
-require_once __DIR__.'/server.php';
-
 // Get credentials
 require_once __DIR__.'/db.php';	
 
@@ -32,11 +29,7 @@ catch(Exception $e) {
 // Even though auth_code checks out, also do OAuth token check
 $access_token = $key_code;
 
-// May need to figure out how to feed in the $access_token instead of getting from Globals
-if (!$server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
-    //$server->getResponse()->send();
-    //die;
-}
+// Add an HTTP call to OAuth2 to verify the $key_code
 
-die('{"status": '.$status.'}');
+die('{"success": '.(($status==1)?'true':'false').'}');
 ?>

@@ -30,7 +30,8 @@ if ($is_authorized) {
 	$token = $server->getAccessTokenData(OAuth2\Request::createFromGlobals());
 	//echo "User ID associated with this token is {$token['user_id']}";
 	
-	exit('<meta http-equiv="refresh" content="0; url=http://dylan.ryanmaule.com/cam4tv/index.html#/auth/'.$code.'" />');
+	// This shouldn't be like this.  It should return a JSON response.
+	exit('<meta http-equiv="refresh" content="0; url=http://dylan.ryanmaule.com/cam4tv/#/auth/'.$code.'" />');
 } else {
 	die('Not Authorized Error');
 }

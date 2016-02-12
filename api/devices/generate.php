@@ -9,7 +9,7 @@ session_start();
 $auth_code = "";
 $string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
 for($i=0;$i<6;$i++){ 
-    $pos = rand(0,26); 
+    $pos = rand(0,25); 
     $auth_code .= $string{$pos}; 
 }
 
