@@ -30,7 +30,7 @@ if (!$server->validateAuthorizeRequest($request, $response)) {
 	body, html {
 	    height: 100%;
 	    background-repeat: no-repeat;
-	    background-image: linear-gradient(rgb(252, 83, 29), rgb(250, 225, 217));
+	    background-image: linear-gradient(rgb(0, 0, 0), rgb(115, 115, 115));
 	}
 	
 	.card-container.card {
