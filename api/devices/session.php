@@ -41,10 +41,13 @@ catch(Exception $e) {
 
 
 // PubNub
-$pubnub = new Pubnub('sub-c-2023456c-d1a2-11e5-bcee-0619f8945a4f', 'pub-c-a9afac0f-597a-4d95-a975-83b16220f02b');
+$pubnub = new Pubnub('pub-c-a9afac0f-597a-4d95-a975-83b16220f02b', 'sub-c-2023456c-d1a2-11e5-bcee-0619f8945a4f');
  
 // Use the publish command separately from the Subscribe code shown above. 
 // Subscribe is not async and will block the execution until complete.
 $hereNow = $pubnub->hereNow($auth_code);
+print_r($hereNow);
+
 $publish_result = $pubnub->publish($auth_code,$current_view);
+print_r($publish_result);
 ?>

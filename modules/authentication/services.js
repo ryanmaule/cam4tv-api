@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('Authentication')
+angular.module('cam4tv.authentication')
 
 .factory('AuthenticationService',
     ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',

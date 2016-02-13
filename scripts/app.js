@@ -1,12 +1,14 @@
 ﻿'use strict';
 
 // declare modules
-angular.module('Authentication', []);
-angular.module('Home', []);
+angular.module('cam4tv.authentication', []);
+angular.module('cam4tv.home', []);
+angular.module('cam4tv.secondscreen', ["pubnub.angular.service"]);
 
-angular.module('BasicHttpAuthExample', [
-    'Authentication',
-    'Home',
+angular.module('cam4tv', [
+    'cam4tv.authentication',
+    'cam4tv.home',
+    'cam4tv.secondscreen',
     'ngRoute',
     'ngCookies'
 ])
@@ -15,23 +17,28 @@ angular.module('BasicHttpAuthExample', [
 
     $routeProvider
         .when('/auth/:key_code', {
-            controller: 'AuthController',
+            controller: 'AuthenticationController',
             templateUrl: 'modules/authentication/views/auth.html'
         })
         
         .when('/login', {
-            controller: 'AuthController',
+            controller: 'AuthenticationController',
             templateUrl: 'modules/authentication/views/login.html'
         })
         
         .when('/verify', {
-            controller: 'AuthController',
+            controller: 'AuthenticationController',
             templateUrl: 'modules/authentication/views/verify.html'
         })
         
         .when('/confirm', {
-            controller: 'AuthController',
+            controller: 'AuthenticationController',
             templateUrl: 'modules/authentication/views/confirm.html'
+        })
+        
+        .when('/chat', {
+            controller: 'SecondScreenController',
+            templateUrl: 'modules/secondscreen/views/chat.html'
         })
 
         .when('/', {

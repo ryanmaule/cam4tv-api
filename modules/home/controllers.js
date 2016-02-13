@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('Home')
+angular.module('cam4tv.home')
 
 .controller('HomeController',
     ['$scope',

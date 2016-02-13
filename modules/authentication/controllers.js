@@ -1,8 +1,8 @@
 ﻿'use strict';
 
-angular.module('Authentication')
+angular.module('cam4tv.authentication')
 
-.controller('AuthController',
+.controller('AuthenticationController',
     ['$scope', '$rootScope', '$location', '$routeParams', 'AuthenticationService',
     function ($scope, $rootScope, $location, $routeParams, AuthenticationService) {
         $scope.key_code = $routeParams['key_code'];
