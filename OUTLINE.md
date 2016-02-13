@@ -64,3 +64,4 @@ history
 $result = md5($salt.$string);	
 
 OAuth2: http://bshaffer.github.io/oauth2-server-php-docs/cookbook/
+PubNub: https://github.com/pubnub/pubnub-angular
