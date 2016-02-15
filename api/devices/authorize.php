@@ -14,10 +14,10 @@ require_once __DIR__.'/db.php';
 // Workaround to getting AngularJS post data as $_REQUEST does not work
 $params = json_decode(file_get_contents('php://input'),true);
 	
-$user_id = $params['user_id'];
-$auth_code = $params['auth_code'];
-$key_code = $params['key_code'];
-$type = $params['type'];
+$user_id = isset($params['user_id']) ? $params['user_id'] : "";
+$auth_code = isset($params['auth_code']) ? $params['auth_code'] : "";
+$key_code = isset($params['key_code']) ? $params['key_code'] : "";
+$type = isset($params['type']) ? $params['type'] : "";
 
 // Check database for user_id and get the device_id
 try {

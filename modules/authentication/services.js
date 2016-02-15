@@ -11,10 +11,22 @@ angular.module('cam4tv.authentication')
         // Completed: Feb. 6, 2016
         service.Login = function (username, password, callback) {             
             // Decide whether to force OAuth2 verification or not depending on whether a key_code has been set or has expired
+            
+            // Old Test Method
+            
             $http.post('/cam4tv/api/login/authorize.php', { username: username, password: password })
                .success(function (response) {
                    callback(response);
             	});
+            
+          
+            // Real CAM4 Method
+            /*
+            $http.post('/cam4tv/api/login/cam4.php', { username: username, password: password })
+               .success(function (response) {
+                   callback(response);
+            	});	 
+            */ 
         };
         
         // Save Credentials to Globals
