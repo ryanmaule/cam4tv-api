@@ -22,31 +22,37 @@ angular.module('cam4tv.secondscreen')
 		        $scope.current_view = message
 		        // Call firebase wrapper
 		        // Extend this to send the username so that we can offer logged in chat with input
-		        SecondScreenService.Chat($scope.current_view, function (response) {
-			        if (response.success) {
-			        	var firebase_url = response.url;
-			        	
-			        	var source = new EventSource(firebase_url);
-						source.addEventListener('put', function(evt) {
-							console.log(evt);
-							var data = JSON.parse(evt.data);
-							for (var key in data) {
-								var obj = data[key];
-								if (obj.hasOwnProperty('m')) {
-									document.getElementById("chat_box").innerHTML += obj.ou+': ';
-									document.getElementById("chat_box").innerHTML += obj.m+'<br/>';
+		        if ($scope.current_view!="Directory") {
+			        SecondScreenService.Chat($scope.current_view, function (response) {
+				        if (response.success) {
+				        	var firebase_url = response.url;
+				        	document.getElementById("chat_box").innerHTML = "";
+				        	
+				        	var source = new EventSource(firebase_url);
+							source.addEventListener('put', function(evt) {
+								console.log(evt);
+								var data = JSON.parse(evt.data);
+								for (var key in data) {
+									var obj = data[key];
+									if (obj.hasOwnProperty('m')) {
+										document.getElementById("chat_box").innerHTML += obj.ou+': ';
+										document.getElementById("chat_box").innerHTML += obj.m+'<br/>';
+									}
+									if (obj.hasOwnProperty('tk')) {
+										document.getElementById("chat_box").innerHTML += obj.ou+' tipped ';
+										document.getElementById("chat_box").innerHTML += obj.tk+' tokens!<br/>';
+									}
 								}
-								if (obj.hasOwnProperty('tk')) {
-									document.getElementById("chat_box").innerHTML += obj.ou+' tipped ';
-									document.getElementById("chat_box").innerHTML += obj.tk+' tokens!<br/>';
-								}
-							}
-						});
-			        }
-			        else {
-				        document.getElementById("chat_box").innerHTML += "Firebase Error!<br>";
-			        }
-			    });
+							});
+				        }
+				        else {
+					        document.getElementById("chat_box").innerHTML += "Firebase Error!<br>";
+				        }
+				    });
+				}
+				else {
+					document.getElementById("chat_box").innerHTML = "";
+				}
 		    });
 		});
     }]);
